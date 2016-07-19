@@ -1,0 +1,65 @@
+.address-map {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  bottom: 20px;
+  left: 20px;
+  background: $color-background;
+  border-radius: 5px 6px 6px;
+
+  .header {
+    position: relative;
+    z-index: 1;
+    line-height: 49px;
+    background: transparentize($color-background, .1);;
+    border-bottom: 1px solid darken($color-background, 7);
+    border-radius: 5px 5px 0;
+
+    h2 {
+      margin: 0;
+      padding: 0 10px;
+    }
+
+    .close {
+      right: 0;
+      top: 0;
+      width: 45px;
+      height: 50px;
+      @include close(30px, 2px, 10px, 20px);
+    }
+  }
+
+  .addresses-list-container {
+    position: absolute;
+    z-index: 1;
+    top: 50px;
+    bottom: 0;
+    background: transparentize(darken($color-background, 1), .1);
+    width: 299px;
+    padding: 10px;
+    border-radius: 0 0 0 6px;
+    border-right: 1px solid darken($color-background, 7);
+  }
+
+  .zoom-controls {
+    display: none;
+    position: absolute;
+    top: 50;
+    left: 320px;
+    z-index: 1;
+    height: 30px;
+    line-height: 30px;
+  }
+
+  .map {
+
+    .ember-cli-g-map {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      border-radius: 5px;
+    }
+  }
+}

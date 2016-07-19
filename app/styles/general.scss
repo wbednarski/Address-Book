@@ -1,0 +1,57 @@
+body {
+  color: $color-text;
+  background: #222;
+  font-weight: 300;
+  font-family: $font-family-base;
+  min-width: 800px;
+  min-height: 600px;
+}
+
+.pac-container.pac-logo {
+  cursor: pointer;
+
+  &:after {
+    display: none;
+  }
+
+  .pac-item {
+
+    .pac-icon.pac-icon-marker {
+      display: none;
+    }
+
+    .pac-item-query {
+      color: desaturate($color-address-book-alt, 5);
+
+      .pac-matched {
+
+      }
+    }
+
+    span:nth-child(3) {
+      color: desaturate($color-address-book, 25);
+    }
+  }
+}
+
+.notification {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  top: 24px;
+  right: 65px;
+  padding: 0 10px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 17px;
+  border-radius: 3px;
+
+  &.show-it {
+    display: block;
+  }
+
+  &.saved {
+    background: $color-highlight;
+  }
+}

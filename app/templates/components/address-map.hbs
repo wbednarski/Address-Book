@@ -1,0 +1,16 @@
+<div class="address-map">
+  <div class="header">
+    <h2>Address Book</h2>
+    <a class="close" title="close">close</a>
+  </div>
+  <div class="addresses-list-container">
+    {{address-list mapData=mapData mapSettings=mapSettings markers=markers showOnMap=(action "showOnMap") fitMap=(action "fitMap")}}
+  </div>
+  <div class="zoom-controls">
+    <a {{action "street"}} class="street">street</a>
+    <a {{action "city"}} class="city">city</a>
+  </div>
+  <div class="map">
+    {{g-maps map=map lat=mapData.lat lng=mapData.lng zoom=mapSettings.zoom markers=markers showMapTypeControl=mapSettings.showMapTypeControl showZoomControl=mapSettings.showZoomControl styles=mapSettings.styles}}
+  </div>
+</div>

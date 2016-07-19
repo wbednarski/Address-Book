@@ -1,0 +1,25 @@
+<div class="address-list">
+  <ul>
+    {{#each addresses key="@index" as |address|}}
+      <li>
+        {{address-item address=address mapData=mapData addresses=addresses collapse=collapse save=(action "updateAddress") remove=(action "removeAddress") showOnMap=(action "showOnMap")}}
+      </li>
+    {{else}}
+      <li class="no-addresses">You have no addresses. <a {{action "toggleAddressForm"}}>Add a new address</a></li>
+    {{/each}}
+  </ul>
+
+  <div class="add-address-form {{if isAdding "is-in-edit"}}">
+    {{#if isAdding}}
+      {{address-autocomplete label="Search for address" value=address onChange=(action (mut address)) on-select=(action 'addressDidChange')}}
+      <div class="controls">
+        {{#paper-button raised=true primary=true onClick=(action 'addAddress')}}Save Address{{/paper-button}}
+      </div>
+      <a {{action "toggleAddressForm"}} class="close" title="close">close</a>
+    {{else}}
+      <div class="controls add-new-address">
+        {{#paper-button raised=true primary=true onClick=(action 'toggleAddressForm')}}Add a New Address{{/paper-button}}
+      </div>
+    {{/if}}
+  </div>
+</div>

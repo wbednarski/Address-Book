@@ -1,0 +1,67 @@
+<div class="address-item">
+  {{#if isEditing}}
+    <div class="edit-address-form">
+
+      <span class="categories">
+        {{#paper-select placeholder="Address Type" value=address.label onChange=(action (mut address.label))}}
+          {{#each addressTypes as |type|}}
+            {{#paper-option value=type}}
+              {{type}}
+            {{/paper-option}}
+          {{/each}}
+        {{/paper-select}}
+      </span>
+
+      <span class="adr">
+        <span class="street-address">
+          {{paper-input flex=true label="Street" value=address.address_1 disabled=true onChange=(action (mut address.address_1))}}
+          {{paper-input flex=30 label="No." value=address.address_2 onChange=(action (mut address.address_2)) onKeyDown=(action "update")}}
+        </span>
+        <span class="postal-code">
+          {{paper-input flex=30 label="Postal code" value=address.zipcode onChange=(action (mut address.zipcode)) onKeyDown=(action "update")}}
+        </span>
+        <span class="locality">
+          {{paper-input flex=30 label="City" value=address.city disabled=true onChange=(action (mut address.city))}}
+        </span>
+        <span class="region">
+          {{paper-input flex=30 label="State" value=address.state disabled=true onChange=(action (mut address.state))}}
+        </span>
+        <span class="country-name">
+          {{paper-input flex=30 label="Country" value=address.country disabled=true onChange=(action (mut address.country))}}
+        </span>
+      </span>
+
+      <div class="controls">
+        <a {{action "close"}} title="close" class="close">close</a>
+        <a {{action "remove"}} class="delete">delete</a>
+      </div>
+    </div>
+
+  {{else}}
+
+    <div class="address">
+      <div class="vcard">
+        <span class="categories">{{address.label}}</span>
+        <small class="local-time" title="{{address.timeZoneName}}"><em>(local time {{address.localTime}})</em></small>
+        <!-- <span class="fn">{Name}</span> -->
+        <span class="adr">
+          <span class="street-address">{{address.address_1}} {{address.address_2}}</span>
+          <span class="postal-code">{{address.zipcode}}</span>
+          <span class="locality">{{address.city}}</span>
+          <span class="region">{{address.state}}</span>
+          <span class="country-name">{{address.country}}</span>
+        </span>
+      </div>
+
+      <div class="controls">
+        <a {{action "edit"}} class="edit">edit</a>
+      </div>
+    </div>
+
+  {{/if}}
+
+  <div class="notification saved {{if saved "show-it"}}">
+    all data saved!
+  </div>
+
+</div>

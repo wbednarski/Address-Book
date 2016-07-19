@@ -1,0 +1,110 @@
+.address-item {
+  position: relative;
+
+  .delete {
+
+    &:hover {
+      color: $color-danger;
+      border-bottom-color: $color-danger;
+    }
+  }
+
+  input:disabled {
+    color: $color-address-book !important;
+  }
+
+  .edit-address-form {
+
+    .categories {
+      display: block;
+
+      md-select-value {
+        width: 120px;
+      }
+    }
+
+    .street-address {
+      display: block;
+    }
+
+    .locality {
+
+    }
+
+    .region {
+
+    }
+
+    .postal-code {
+
+    }
+
+    .country-name {
+      display: block;
+
+      input {
+        width: 285px;
+      }
+    }
+
+    .close {
+      right: -4px;
+      top: 0;
+      width: 20px;
+      height: 20px;
+      @include close(12px, 1px, 5px, 10px);
+    }
+
+  }
+
+  .address {
+
+    .controls {
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: 75%;
+    }
+  }
+
+  .vcard {
+    line-height: 150%;
+
+    .categories {
+      color: $color-address-book-alt;
+      font-weight: bold;
+    }
+
+    .local-time {
+      padding-left: 5px;
+      color: lighten($color-text, 10);
+    }
+
+    .fn {
+
+    }
+
+    .adr {
+
+      .street-address {
+        display: block;
+      }
+
+      .locality {
+
+      }
+
+      .region {
+
+      }
+
+      .postal-code {
+
+      }
+
+      .country-name {
+        display: block;
+      }
+    }
+  }
+}

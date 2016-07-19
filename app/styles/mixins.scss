@@ -1,0 +1,36 @@
+@mixin close($size, $thickness, $top, $right) {
+  position: absolute;;
+  opacity: 0.3;
+  text-indent: -9999px;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+
+  &:hover {
+    opacity: 1;
+
+    &::before,
+    &::after {
+      background-color: $color-danger;
+    }
+  }
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: $top;
+    right: $right;
+    content: ' ';
+    height: $size;
+    width: $thickness;
+    background-color: #333;
+  }
+
+  &::before {
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+}
